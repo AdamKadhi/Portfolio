@@ -24,10 +24,19 @@ window.onscroll= function(){
     }
 }
 
-  function downloadPDF() {
-    var link = document.createElement('a');
-    link.href = '/images/Resume.pdf'; 
-    link.target = '_blank'; 
-    link.download = 'Resume.pdf'; 
+//   function downloadPDF() {
+//     var link = document.createElement('a');
+//     link.href = '/images/Resume.pdf'; 
+//     link.target = '_blank'; 
+//     link.download = 'Resume.pdf'; 
+//     link.click();
+//   }
+document.getElementById("downloadButton").addEventListener("click", function() {
+    var pdfPath = "./images/Resume.pdf";
+    var link = document.createElement("a");
+    link.href = pdfPath;
+    link.download = "Resume.pdf";
+    document.body.appendChild(link);
     link.click();
-  }
+    document.body.removeChild(link);
+  });
